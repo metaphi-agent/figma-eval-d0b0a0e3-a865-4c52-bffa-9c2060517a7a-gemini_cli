@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* Design tokens extracted from Figma */
+@theme {
+  --font-sans: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  --color-primary: #DB4444;
+  --color-secondary: #F5F5F5;
+  --color-text: #000000;
+  --color-text-muted: #7D8184;
+  --color-bg: #FFFFFF;
+  --color-bg-secondary: #F5F5F5;
+  --color-button: #DB4444;
+  --color-button-hover: #E07575;
+  --color-button-text: #FAFAFA;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
