@@ -1,25 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
-/* Design tokens extracted from Figma */
 @theme {
-  --font-sans: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Poppins', sans-serif;
   
   --color-primary: #DB4444;
   --color-secondary: #F5F5F5;
-  --color-text: #000000;
-  --color-text-muted: #7D8184;
   --color-bg: #FFFFFF;
-  --color-bg-secondary: #F5F5F5;
-  --color-button: #DB4444;
-  --color-button-hover: #E07575;
-  --color-button-text: #FAFAFA;
+  --color-text1: #000000;
+  --color-text2: #FAFAFA;
+  --color-button1: #00FF66;
+  --color-button2: #DB4444;
+  --color-hover-button: #E07575;
+  --color-hover-category: #E07575;
+  
+  --spacing-container: 1170px;
 }
 
 body {
   font-family: var(--font-sans);
-  color: var(--color-text);
+  color: var(--color-text1);
   background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
+}
+
+.container-custom {
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }

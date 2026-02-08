@@ -1,17 +1,19 @@
 import React from 'react';
 
-export const TopHeader: React.FC = () => {
+export const TopHeader = () => {
   return (
-    <div className="bg-black text-[var(--color-text-muted)] h-12 flex items-center justify-between px-4 sm:px-12 md:px-24 lg:px-32 text-sm">
-      <div className="flex-1 flex justify-center items-center gap-2 text-white">
-        <span>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</span>
-        <a href="#" className="font-semibold underline">ShopNow</a>
-      </div>
-      <div className="hidden sm:flex items-center gap-1 text-white cursor-pointer">
-        <span>English</span>
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M6 9l6 6 6-6" />
-        </svg>
+    <div className="bg-black text-white py-3 text-sm hidden md:block">
+      <div className="container-custom flex justify-between items-center h-full">
+        <div className="flex-1 flex justify-center items-center gap-2">
+          <span className="font-light opacity-90">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</span>
+          <button className="font-semibold underline hover:opacity-80 cursor-pointer">ShopNow</button>
+        </div>
+        <div className="flex items-center gap-2 cursor-pointer">
+          <span>English</span>
+          <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white">
+            <path d="M11 1L6 6L1 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
       </div>
     </div>
   );

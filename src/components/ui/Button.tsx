@@ -1,54 +1,42 @@
 import React from 'react';
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
+import { cn } from '../../utils/cn';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'outline' | 'text';
   size?: 'sm' | 'md' | 'lg';
-  isLoading?: boolean;
 }
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'primary', size = 'md', isLoading, children, disabled, ...props }, ref) => {
-    const variants = {
-      primary: 'bg-[var(--color-button)] text-[var(--color-button-text)] hover:opacity-90 active:scale-95 transition-all shadow-sm',
-      secondary: 'bg-[var(--color-secondary)] text-[var(--color-text)] hover:bg-gray-200 active:scale-95 transition-all',
-      outline: 'border border-gray-300 bg-transparent hover:bg-gray-50 text-[var(--color-text)]',
-      ghost: 'bg-transparent hover:bg-gray-100 text-[var(--color-text)]',
-    };
+export const Button = ({ 
+  children, 
+  className, 
+  variant = 'primary', 
+  size = 'md', 
+  ...props 
+}: ButtonProps) => {
+  const variants = {
+    primary: 'bg-primary text-white border border-transparent hover:opacity-90',
+    secondary: 'bg-secondary text-black border border-transparent', 
+    outline: 'bg-transparent text-black border border-gray-400 hover:border-black hover:text-primary',
+    text: 'bg-transparent text-black hover:underline p-0 h-auto border-none shadow-none',
+  };
 
-    const sizes = {
-      sm: 'h-8 px-3 text-sm',
-      md: 'h-12 px-8 text-base',
-      lg: 'h-14 px-10 text-lg',
-    };
+  const sizes = {
+    sm: 'px-6 py-2 text-sm h-10',
+    md: 'px-8 py-3 text-base h-12',
+    lg: 'px-12 py-4 text-base h-14',
+  };
 
-    return (
-      <button
-        ref={ref}
-        disabled={isLoading || disabled}
-        className={cn(
-          'inline-flex items-center justify-center rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-primary)] disabled:opacity-50 disabled:pointer-events-none',
-          variants[variant],
-          sizes[size],
-          className
-        )}
-        {...props}
-      >
-        {isLoading && (
-          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-          </svg>
-        )}
-        {children}
-      </button>
-    );
-  }
-);
-
-Button.displayName = 'Button';
+  return (
+    <button
+      className={cn(
+        'rounded flex items-center justify-center font-medium transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed',
+        variants[variant],
+        variant !== 'text' ? sizes[size] : '',
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+};
