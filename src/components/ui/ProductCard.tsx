@@ -16,7 +16,7 @@ export const ProductCard = ({ name, price, oldPrice, rating, reviews, discount, 
     return (
         <div className="group flex flex-col gap-4 cursor-pointer min-w-[270px]">
             <div className="relative bg-secondary rounded-[4px] w-[270px] h-[250px] overflow-hidden flex items-center justify-center p-4">
-                <img src={image} alt={name} className="object-contain w-3/4 h-3/4 group-hover:scale-105 transition-transform duration-300" />
+                <img src={image} alt={name} loading="lazy" className="object-contain w-3/4 h-3/4 group-hover:scale-105 transition-transform duration-300" />
                 
                 {/* Badges */}
                 <div className="absolute top-3 left-3 flex flex-col gap-2">
